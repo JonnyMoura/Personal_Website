@@ -1,0 +1,100 @@
+/* Home.css */
+@import url('./font.css');
+
+.site_frame {
+  display: grid;
+  grid-template-areas:
+    'top-left top-right'
+    'bottom-left bottom-right';
+  height: 100vh;
+  gap: 70vh;
+  position: relative;
+}
+
+.top-left,
+.bottom-left,
+.top-right,
+.bottom-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site_words {
+  font-family: 'Brulia', sans-serif;
+  font-size: 2.5em;
+  letter-spacing: 0.05vh;
+  -webkit-text-stroke: 0.5px white;
+}
+
+.top-left {
+  grid-area: top-left;
+  justify-content: flex-start;
+  display: flex;
+  margin-left: 5vh;
+}
+
+.moura_word {
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  position: absolute;
+  left: 13vh;
+  top: 9.5vh;
+}
+
+.top-right {
+  grid-area: top-right;
+  justify-content: flex-end;
+  margin-right: 5vh;
+}
+
+.bottom-left {
+  grid-area: bottom-left;
+  justify-content: flex-start;
+  margin-left: 5vh;
+}
+
+.bottom-right {
+  grid-area: bottom-right;
+  justify-content: flex-end;
+  margin-right: 5vh;
+}
+
+.line {
+  position: absolute;
+  background-color: white;
+}
+
+.line.top {
+
+  left: 18vh;
+  top:18%;
+  transform: rotate(20deg);
+  height: 0.5px;
+  width: 10%;
+}
+
+.line.right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 50%;
+  width: 2px;
+}
+
+.line.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 50%;
+}
+
+.line.left {
+    left: 10%;
+    bottom:18%;
+    transform: rotate(-20deg);
+    height: 0.5px;
+    width: 10%;
+}
