@@ -23,15 +23,16 @@
 .site_words {
   font-family: 'Brulia', sans-serif;
   font-size: 2.5em;
-  letter-spacing: 0.05vh;
+  letter-spacing: 0.05vw;
   -webkit-text-stroke: 0.5px white;
+  color: rgba(0, 0, 0, 0);
 }
 
 .top-left {
   grid-area: top-left;
   justify-content: flex-start;
   display: flex;
-  margin-left: 5vh;
+  margin-left: 2vw;
 }
 
 .moura_word {
@@ -39,26 +40,26 @@
   height: min-content;
   white-space: nowrap;
   position: absolute;
-  left: 13vh;
-  top: 9.5vh;
+  left: 5vw;
+  top: 10vh;
 }
 
 .top-right {
   grid-area: top-right;
   justify-content: flex-end;
-  margin-right: 5vh;
+  margin-right: 2vw;
 }
 
 .bottom-left {
   grid-area: bottom-left;
   justify-content: flex-start;
-  margin-left: 5vh;
+  margin-left: 2vw;
 }
 
 .bottom-right {
   grid-area: bottom-right;
   justify-content: flex-end;
-  margin-right: 5vh;
+  margin-right: 2vw;
 }
 
 .line {
@@ -68,33 +69,33 @@
 
 .line.top {
 
-  left: 18vh;
-  top:18%;
+  left: 10vw;
+  top:21%;
   transform: rotate(20deg);
   height: 0.5px;
-  width: 10%;
+  width: 8%;
 }
 
 .line.right {
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  height: 50%;
-  width: 2px;
+  top: 18%;
+  right: 7vw;
+  transform: rotate(-20deg);
+  height: 0.5px;
+  width: 8%;
 }
 
 .line.bottom {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 2px;
-  width: 50%;
+  bottom: 18%;
+  right: 7vw;
+  transform: rotate(20deg);
+  height: 0.5px;
+  width: 8%;
 }
 
 .line.left {
-    left: 10%;
+    left: 7.5vw;
     bottom:18%;
     transform: rotate(-20deg);
     height: 0.5px;
-    width: 10%;
+    width: 8%;
 }

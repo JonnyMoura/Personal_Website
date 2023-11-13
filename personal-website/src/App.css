@@ -1,7 +1,24 @@
 .App {
   text-align: center;
-  background-color: black;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(120deg,rgb(5, 82, 83) , rgb(55, 11, 116),rgb(93, 56, 238));
+	background-size: 180% 180%;
+	animation: gradient-animation 10s ease infinite;
 }
+
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 .App-logo {
   height: 40vmin;
