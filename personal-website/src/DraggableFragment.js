@@ -1,35 +1,33 @@
-// DraggableTextFragment.js
+// DraggableFragment.js
 import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 
-
-const DraggableTextFragment = ({ id, text, position, onDrag, onStop }) => {
+const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) => {
   const fragmentRef = useRef(null);
-  
 
-  const [{ xy }, set] = useSpring(() => {
-    const rect = fragmentRef.current ? fragmentRef.current.getBoundingClientRect() : { width: 0, height: 0 };
-    const maxX = window.innerWidth - rect.width;
-    const maxY = window.innerHeight - rect.height;
-    return { xy: [position.x, position.y], config: { friction: 100 } };
-  });
+  const [{ xy, opacity }, set] = useSpring(() => ({
+    xy: [position.x, position.y],
+    opacity: 0,
+    config: { friction: 100 },
+  }));
+
+  // Trigger the fade-in effect on component mount
+  React.useEffect(() => {
+    set({ opacity: 1 });
+  }, [set]);
 
   const bind = useGesture({
     onDrag: ({ offset: [x, y], xy: [currentX, currentY] }) => {
       if (fragmentRef.current) {
         set({ xy: [currentX + x, currentY + y] });
         onDrag(id, { x, y });
-       
       }
     },
     onDragEnd: ({ offset: [x, y] }) => {
       onStop(id, { x, y });
-      
     },
-    
   });
-  
 
   return (
     <animated.div
@@ -42,18 +40,27 @@ const DraggableTextFragment = ({ id, text, position, onDrag, onStop }) => {
         padding: '5px',
         fontFamily: 'Brulia',
         background: 'transparent',
-        color: 'white',
         zIndex: 1, // Set to be the top layer
+        opacity,
+       
         transform: xy.interpolate((x, y) =>
           `translate3d(${clamp(x, 0, window.innerWidth - 100)}px, ${clamp(y, 0, window.innerHeight - 30)}px, 0)`
         ),
       }}
     >
-      {text}
+      {isImage ? (
+        <img
+          src={content}
+          alt={`Image ${id}`}
+          style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+        />
+      ) : (
+        <span style={{ color: 'white', pointerEvents: 'none' }}>{content}</span>
+      )}
     </animated.div>
   );
 };
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-export default DraggableTextFragment;
+export default DraggableFragment;

@@ -2,7 +2,7 @@
   text-align: center;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(120deg,rgb(5, 82, 83) , rgb(68, 14, 205),rgb(36, 125, 227));
+	background: linear-gradient(120deg,rgb(5, 82, 83) , rgb(68, 14, 205),rgb(88, 15, 198),rgb(36, 125, 227));
 	background-size: 180% 180%;
 	animation: gradient-animation 10s ease infinite;
 	overflow: hidden;
@@ -43,14 +43,26 @@
   justify-content: center;
 }
 
+/* Add this to your CSS */
+
 .site_words {
   font-family: 'Brulia', sans-serif;
   font-size: 5.5vh;
   letter-spacing: 0.05vw;
   -webkit-text-stroke: 0.5px white;
   color: rgba(0, 0, 0, 0);
- 
+  cursor: pointer; /* Set cursor to pointer to indicate it's clickable */
+  transition: color 0.3s; /* Add a smooth transition for color changes */
+  z-index: 2;
 }
+
+.site_words:hover {
+  color: #ffffff; /* Change the color on hover */
+}
+
+
+
+
 
 .top-left {
   grid-area: top-left;
@@ -89,6 +101,8 @@
 .line {
   position: absolute;
   background-color: white;
+  pointer-events: auto;
+  z-index: 2;
 }
 
 .line.top_left {
