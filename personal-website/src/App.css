@@ -2,7 +2,7 @@
   text-align: center;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(120deg,rgb(5, 82, 83) , rgb(68, 14, 205),rgb(88, 15, 198),rgb(36, 125, 227));
+	background: linear-gradient(120deg,rgba(5, 82, 83,1) , rgb(30, 7, 91),rgb(38, 7, 84),rgb(10, 36, 65));
 	background-size: 180% 180%;
 	animation: gradient-animation 10s ease infinite;
 	overflow: hidden;
@@ -51,8 +51,8 @@
   letter-spacing: 0.05vw;
   -webkit-text-stroke: 0.5px white;
   color: rgba(0, 0, 0, 0);
-  cursor: pointer; /* Set cursor to pointer to indicate it's clickable */
-  transition: color 0.3s; /* Add a smooth transition for color changes */
+  cursor: pointer; 
+  transition: color 0.3s; 
   z-index: 2;
 }
 

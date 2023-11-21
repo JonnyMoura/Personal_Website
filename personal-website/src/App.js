@@ -1,5 +1,6 @@
 import './App.css';
 import BlockContainer from './BlockContainer';
+import Slideshow from './Slideshow';
 import TextJoiningGame from './TextJoiningGame';
 import WelcomeMessage from './WelcomeMessage';
 import React, { useState } from 'react';
@@ -18,6 +19,9 @@ function App() {
         return <BlockContainer />;
       case 'aboutMe':
         return <TextJoiningGame />;
+
+      case 'links':
+        return <Slideshow/>
       default:
         return (
           <>

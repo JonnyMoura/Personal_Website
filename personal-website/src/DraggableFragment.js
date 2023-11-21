@@ -9,7 +9,7 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
   const [{ xy, opacity }, set] = useSpring(() => ({
     xy: [position.x, position.y],
     opacity: 0,
-    config: { friction: 100 },
+    config: { friction: 150},
   }));
 
   // Trigger the fade-in effect on component mount
@@ -29,6 +29,21 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
     },
   });
 
+  const handleImageLoad = () => {
+    // Calculate the maximum allowed positions based on the size of the image and the window dimensions
+    const rect = fragmentRef.current.getBoundingClientRect();
+    const maxX = window.innerWidth - rect.width;
+    const maxY = window.innerHeight - rect.height;
+
+    // Update the spring animation with the new constraints
+    set({
+      xy: [
+        clamp(xy.get()[0], 0, maxX),
+        clamp(xy.get()[1], 0, maxY),
+      ],
+    });
+  };
+
   return (
     <animated.div
       {...bind()}
@@ -40,9 +55,9 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
         padding: '5px',
         fontFamily: 'Brulia',
         background: 'transparent',
-        zIndex: 1, // Set to be the top layer
+        zIndex: 1, 
         opacity,
-       
+  
         transform: xy.interpolate((x, y) =>
           `translate3d(${clamp(x, 0, window.innerWidth - 100)}px, ${clamp(y, 0, window.innerHeight - 30)}px, 0)`
         ),
@@ -53,6 +68,7 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
           src={content}
           alt={`Image ${id}`}
           style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+          onLoad={handleImageLoad}
         />
       ) : (
         <span style={{ color: 'white', pointerEvents: 'none' }}>{content}</span>
