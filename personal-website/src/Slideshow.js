@@ -185,7 +185,7 @@ const getClickableAreaStyle = (area, isHovered) => {
         top: `${area.coordinates.y - area.coordinates.radius}%`,
         width: `${area.coordinates.radius * 2}%`, // Set width to the same value as radius
         height: `${area.coordinates.radius * 4}%`, // Set height to the same value as radius
-        backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
+        backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
         borderRadius: '50%', // Make the circle a perfect circle
       };
     default:
