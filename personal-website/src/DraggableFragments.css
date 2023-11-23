@@ -1,0 +1,23 @@
+.fragment {
+    position: absolute;
+    user-select: none;
+    cursor: grab;
+    padding: 5px;
+    font-family: 'Brulia';
+    background: transparent;
+    z-Index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .text-fragment {
+        
+      width: 60%;
+      font-size: 2vw;
+    }
+
+    .image-fragment{
+        width:8vw;
+        height:7vh;
+    }
+  }
+  

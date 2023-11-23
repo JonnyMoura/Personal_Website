@@ -11,7 +11,7 @@ const BlockContainer = () => {
     { id: 5, color: 'purple', shape: 'S' },
     { id: 6, color: 'orange', shape: 'T' },
     { id: 7, color: 'cyan', shape: 'Z' },
-    // Add more pieces as needed
+    
   ];
 
   const getRandomPosition = () => ({

@@ -9,8 +9,8 @@ const getRandomPosition = (width, height) => ({
 const TextJoiningGame = () => {
     
     
-    const fragmentWidth = 650; // Adjust the width of your text fragments
-    const fragmentHeight = 30; // Adjust the height of your text fragments
+  const fragmentWidth = 450
+  const fragmentHeight =20
     
 
     
@@ -37,18 +37,25 @@ const TextJoiningGame = () => {
     const fragmentRefs = useRef(fragments.map(() => React.createRef()));
 
     const handleDrag = (id, data) => {
-      // Handle drag event if needed
+      const { x, y } = data;
+  
+      // Calculate boundaries to prevent dragging out of the viewport
+      const maxX = window.innerWidth - fragmentWidth;
+      const maxY = window.innerHeight - fragmentHeight;
+  
+      // Clamp the new position within the boundaries
+      const clampedX = Math.min(maxX, Math.max(0, x));
+      const clampedY = Math.min(maxY, Math.max(0, y));
+  
+      setFragments((prevFragments) =>
+        prevFragments.map((fragment) =>
+          fragment.id === id ? { ...fragment, position: { x: clampedX, y: clampedY } } : fragment
+        )
+      );
     };
-  
+
     const handleStop = (id, data) => {
-      const updatedFragments = fragments.map((fragment) => {
-        if (fragment.id === id) {
-          return { ...fragment, position: { x: data.x, y: data.y } };
-        }
-        return fragment;
-      });
-  
-      setFragments(updatedFragments);
+      
     };
   
     useEffect(() => {
@@ -78,5 +85,6 @@ const TextJoiningGame = () => {
     </div>
   );
 };
+
 
 export default TextJoiningGame;

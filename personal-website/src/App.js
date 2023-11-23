@@ -1,7 +1,7 @@
 import './App.css';
 import BlockContainer from './BlockContainer';
 import Slideshow from './Slideshow';
-import TextJoiningGame from './TextJoiningGame';
+import TextJoiningGame from './JoiningGame';
 import WelcomeMessage from './WelcomeMessage';
 import React, { useState } from 'react';
 

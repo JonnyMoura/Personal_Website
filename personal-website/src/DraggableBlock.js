@@ -11,7 +11,22 @@ const DraggableBlock = ({ color, id, shape, style }) => {
     ...style,
   };
   const getRandomColor = () => {
-    const randomColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+    
+    const minRed = 150;
+    const maxRed = 255;
+    const minGreen = 80;
+    const maxGreen = 255;
+    const minBlue = 80;
+    const maxBlue = 255;
+  
+    // Generate random values within the specified range
+    const randomRed = Math.floor(Math.random() * (maxRed - minRed) + minRed);
+    const randomGreen = Math.floor(Math.random() * (maxGreen - minGreen) + minGreen);
+    const randomBlue = Math.floor(Math.random() * (maxBlue - minBlue) + minBlue);
+  
+  
+    const randomColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+  
     return randomColor;
   };
   switch (shape) {

@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
+import './DraggableFragments.css';
 
 const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) => {
   const fragmentRef = useRef(null);
@@ -9,10 +10,10 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
   const [{ xy, opacity }, set] = useSpring(() => ({
     xy: [position.x, position.y],
     opacity: 0,
-    config: { friction: 150},
+    config: { friction: 150 },
   }));
 
-  // Trigger the fade-in effect on component mount
+  
   React.useEffect(() => {
     set({ opacity: 1 });
   }, [set]);
@@ -20,27 +21,34 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
   const bind = useGesture({
     onDrag: ({ offset: [x, y], xy: [currentX, currentY] }) => {
       if (fragmentRef.current) {
-        set({ xy: [currentX + x, currentY + y] });
-        onDrag(id, { x, y });
+        
+        const rect = fragmentRef.current.getBoundingClientRect();
+        const maxX = window.innerWidth - rect.width;
+        const maxY = window.innerHeight - rect.height;
+
+        
+        const clampedX = clamp(currentX + x, 0, maxX);
+        const clampedY = clamp(currentY + y, 0, maxY);
+
+        
+        set({ xy: [clampedX, clampedY] });
+
+        
+        onDrag(id, { x: clampedX - currentX, y: clampedY - currentY });
       }
     },
-    onDragEnd: ({ offset: [x, y] }) => {
-      onStop(id, { x, y });
-    },
+  
   });
 
   const handleImageLoad = () => {
-    // Calculate the maximum allowed positions based on the size of the image and the window dimensions
+    
     const rect = fragmentRef.current.getBoundingClientRect();
     const maxX = window.innerWidth - rect.width;
     const maxY = window.innerHeight - rect.height;
 
-    // Update the spring animation with the new constraints
+    
     set({
-      xy: [
-        clamp(xy.get()[0], 0, maxX),
-        clamp(xy.get()[1], 0, maxY),
-      ],
+      xy: [clamp(xy.get()[0], 0, maxX), clamp(xy.get()[1], 0, maxY)],
     });
   };
 
@@ -48,26 +56,17 @@ const DraggableFragment = ({ id, content, position, onDrag, onStop, isImage }) =
     <animated.div
       {...bind()}
       ref={fragmentRef}
+      className={`fragment ${isImage ? 'image-fragment' : 'text-fragment'}`}
       style={{
-        position: 'absolute',
-        userSelect: 'none',
-        cursor: 'grab',
-        padding: '5px',
-        fontFamily: 'Brulia',
-        background: 'transparent',
-        zIndex: 1, 
         opacity,
-  
-        transform: xy.interpolate((x, y) =>
-          `translate3d(${clamp(x, 0, window.innerWidth - 100)}px, ${clamp(y, 0, window.innerHeight - 30)}px, 0)`
-        ),
+        transform: xy.interpolate((x, y) => `translate3d(${x}px, ${y}px, 0)`),
       }}
     >
       {isImage ? (
         <img
           src={content}
           alt={`Image ${id}`}
-          style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+          style={{ width: '100%', height: '100%', pointerEvents: 'none', opacity: '0.7' }}
           onLoad={handleImageLoad}
         />
       ) : (
