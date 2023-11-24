@@ -135,24 +135,24 @@ const Slideshow = () => {
               backgroundPosition: 'center',
             }}
           >
-            
-            {clickableAreas.map((area) =>
-              area.index === i ? (
-                <div
-                  key={area.index}
-                  className={`clickable-area ${hoveredArea === area.index ? 'hover' : ''}`}
-                  style={{
-                    ...getClickableAreaStyle(area, hoveredArea === area.index),
-                    zIndex: 2,
-                  }}
-                  onMouseEnter={() => handleMouseEnter(area)}
-                  onMouseLeave={handleMouseLeave}
-                  onTouchStart={() => handleTouchStart(area)}
-                  onTouchEnd={handleTouchEnd}
-                  onClick={() => handleAreaClick(area)}
-                />
-              ) : null
-            )}
+            {window.innerWidth >= 768 &&
+              clickableAreas.map((area) =>
+                area.index === i ? (
+                  <div
+                    key={area.index}
+                    className={`clickable-area ${hoveredArea === area.index ? 'hover' : ''}`}
+                    style={{
+                      ...getClickableAreaStyle(area, hoveredArea === area.index),
+                      zIndex: 2,
+                    }}
+                    onMouseEnter={() => handleMouseEnter(area)}
+                    onMouseLeave={handleMouseLeave}
+                    onTouchStart={() => handleTouchStart(area)}
+                    onTouchEnd={handleTouchEnd}
+                    onClick={() => handleAreaClick(area)}
+                  />
+                ) : null
+              )}
           </animated.div>
         ))}
       </div>
@@ -180,7 +180,8 @@ const Slideshow = () => {
         </div>
       </div>
     </>
-  );}
+  );
+}
 
 export default Slideshow;
 
