@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Personal_Website/static/css/main.a3744f47.css",
-    "main.js": "/Personal_Website/static/js/main.29b0913e.js",
+    "main.css": "/Personal_Website/static/css/main.e899c5d3.css",
+    "main.js": "/Personal_Website/static/js/main.dc7c29b7.js",
     "static/js/787.0f15b36d.chunk.js": "/Personal_Website/static/js/787.0f15b36d.chunk.js",
     "static/media/IMG_4312_COLORS.png": "/Personal_Website/static/media/IMG_4312_COLORS.a66c5089f297cee80535.png",
     "static/media/IMG_4324.png": "/Personal_Website/static/media/IMG_4324.d9e0dff866a22880b098.png",
@@ -24,12 +24,12 @@
     "static/media/image3.png": "/Personal_Website/static/media/image3.b3f4b4eb2215321b5b8a.png",
     "static/media/bruliavariabletest-display.otf": "/Personal_Website/static/media/bruliavariabletest-display.64b1fbed1f95eb9985ab.otf",
     "index.html": "/Personal_Website/index.html",
-    "main.a3744f47.css.map": "/Personal_Website/static/css/main.a3744f47.css.map",
-    "main.29b0913e.js.map": "/Personal_Website/static/js/main.29b0913e.js.map",
+    "main.e899c5d3.css.map": "/Personal_Website/static/css/main.e899c5d3.css.map",
+    "main.dc7c29b7.js.map": "/Personal_Website/static/js/main.dc7c29b7.js.map",
     "787.0f15b36d.chunk.js.map": "/Personal_Website/static/js/787.0f15b36d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3744f47.css",
-    "static/js/main.29b0913e.js"
+    "static/css/main.e899c5d3.css",
+    "static/js/main.dc7c29b7.js"
   ]
 }
