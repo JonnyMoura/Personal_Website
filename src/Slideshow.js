@@ -28,7 +28,7 @@ const clickableAreas = [
   {
     index: 0,
     shape: 'rect',
-    coordinates: { x: 35, y: 63, width: 10, height: 21 },
+    coordinates: { x: 35, y: 63, width: 10, height: 25 },
     hyperlink: 'https://www.linkedin.com/in/jo%C3%A3o-moura-7428b1291/',
   },
   // Rectangle for IMG_4159
