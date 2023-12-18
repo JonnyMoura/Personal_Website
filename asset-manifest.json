@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Personal_Website/static/css/main.e899c5d3.css",
-    "main.js": "/Personal_Website/static/js/main.0619115b.js",
+    "main.js": "/Personal_Website/static/js/main.82223c16.js",
     "static/js/787.0f15b36d.chunk.js": "/Personal_Website/static/js/787.0f15b36d.chunk.js",
     "static/media/IMG_4312_COLORS.png": "/Personal_Website/static/media/IMG_4312_COLORS.a66c5089f297cee80535.png",
     "static/media/IMG_4324.png": "/Personal_Website/static/media/IMG_4324.d9e0dff866a22880b098.png",
@@ -25,11 +25,11 @@
     "static/media/bruliavariabletest-display.otf": "/Personal_Website/static/media/bruliavariabletest-display.64b1fbed1f95eb9985ab.otf",
     "index.html": "/Personal_Website/index.html",
     "main.e899c5d3.css.map": "/Personal_Website/static/css/main.e899c5d3.css.map",
-    "main.0619115b.js.map": "/Personal_Website/static/js/main.0619115b.js.map",
+    "main.82223c16.js.map": "/Personal_Website/static/js/main.82223c16.js.map",
     "787.0f15b36d.chunk.js.map": "/Personal_Website/static/js/787.0f15b36d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e899c5d3.css",
-    "static/js/main.0619115b.js"
+    "static/js/main.82223c16.js"
   ]
 }
